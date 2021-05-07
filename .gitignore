@@ -4,3 +4,5 @@ node_modules/
 # Parcel related files
 dist/
 .cache/
+
+package-lock.json
