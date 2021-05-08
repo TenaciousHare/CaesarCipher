@@ -29,3 +29,17 @@ const hideText = (e) => {
 };
 form.addEventListener("submit", showText);
 closeBtn.addEventListener("click", hideText);
+
+function verify(input, goal) {
+  if (input === goal) {
+    console.log("Gratulacje!");
+  } else {
+    console.log(`Niestety, oczekiwano - ${goal}, otrzymano - ${input}`);
+  }
+}
+console.log("TESTY!");
+
+verify(caesar13("Przeprogramowani"), "Cemrcebtenzbjnav");
+verify(caesar13("Bok@123.com"), "Obx@123.pbz");
+// console.log(caesar13(false));
+// console.log(caesar13(""));
