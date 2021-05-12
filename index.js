@@ -5,14 +5,13 @@ const input = form.querySelector("input");
 const closeBtn = document.querySelector(".effect .closeBtn");
 
 const resultBox = document.querySelector(".effect");
-let result = document.querySelector("p.text");
+const result = document.querySelector("p.text");
 
 const showText = (e) => {
   e.preventDefault();
   let text = "";
   if (input.value) {
     text = caesar13(input.value);
-
     result.textContent = text;
   } else {
     result.textContent = `You should enter something,
@@ -30,11 +29,11 @@ const hideText = (e) => {
 form.addEventListener("submit", showText);
 closeBtn.addEventListener("click", hideText);
 
-function verify(input, goal) {
-  if (input === goal) {
+function verify(inputV, goal) {
+  if (inputV === goal) {
     console.log("Gratulacje!");
   } else {
-    console.log(`Niestety, oczekiwano - ${goal}, otrzymano - ${input}`);
+    console.log(`Niestety, oczekiwano - ${goal}, otrzymano - ${inputV}`);
   }
 }
 console.log("TESTY!");

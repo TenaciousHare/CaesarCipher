@@ -9,10 +9,12 @@ const caesar13 = function (string) {
   const latinAlphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   const step = 13;
   const caesarArr = string.split("");
+  const cipheredArr = [];
 
   for (let i = 0; i < caesarArr.length; i++) {
-    const isNotANumber = isNaN(parseInt(caesarArr[i], 10));
-    const specialCharReg = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const NotANumberReg = /[A-Z]/i;
+    const isNotANumber = NotANumberReg.test(caesarArr[i]);
+    const specialCharReg = /[ `!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/;
     const isNotASpecialChar = !specialCharReg.test(caesarArr[i]);
     const isUpperCase = caesarArr[i] === caesarArr[i].toUpperCase();
 
@@ -21,13 +23,15 @@ const caesar13 = function (string) {
         ? latinAlphabetArray.indexOf(caesarArr[i])
         : latinAlphabetArray.indexOf(caesarArr[i].toUpperCase());
       const newLetterPosition = (index + step) % latinAlphabetArray.length;
-      caesarArr[i] = isUpperCase
+      cipheredArr[i] = isUpperCase
         ? latinAlphabetArray[newLetterPosition]
         : latinAlphabetArray[newLetterPosition].toLowerCase();
+    } else {
+      cipheredArr[i] = caesarArr[i];
     }
   }
 
-  return caesarArr.join("");
+  return cipheredArr.join("");
 };
 
 export default caesar13;
